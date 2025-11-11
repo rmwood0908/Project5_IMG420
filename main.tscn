@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://lfn2ndb2jvoc"]
+
+[ext_resource type="Script" uid="uid://b2r0pr81id7l0" path="res://ParticleController.cs" id="1_jjgbg"]
+[ext_resource type="Script" uid="uid://cmwn6rt2uhhwb" path="res://Scripts/PhysicsChain.cs" id="2_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://cgki080hheqi2" path="res://Scenes/ChainSegment.tscn" id="3_8gbba"]
+[ext_resource type="Script" uid="uid://dakcsick7gpl7" path="res://Scripts/LaserDetector.cs" id="4_jjvhh"]
+[ext_resource type="Script" uid="uid://drn0p25jt7pqk" path="res://Scripts/Player.cs" id="5_kry3j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_21xkr"]
+
+[node name="Main" type="Node2D"]
+
+[node name="ParticleSystem" type="Node2D" parent="."]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="ParticleSystem"]
+script = ExtResource("1_jjgbg")
+
+[node name="PhysicsDemo" type="Node2D" parent="."]
+
+[node name="ChainNode" type="Node2D" parent="PhysicsDemo"]
+script = ExtResource("2_bo1nx")
+SegmentScene = ExtResource("3_8gbba")
+
+[node name="LaserSystem" type="Node2D" parent="."]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+script = ExtResource("5_kry3j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_21xkr")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="LaserDetectorNode" type="Node2D" parent="."]
+position = Vector2(0, 300)
+script = ExtResource("4_jjvhh")
