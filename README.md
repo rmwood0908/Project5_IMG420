@@ -1,6 +1,6 @@
 # Assignment 5: Rendering and Physics - Godot Project
 
-## ⚠️ Project Status: INCOMPLETE (But Making Good Progress!)
+### Work in progress
 
 This project is **far from complete**, but the three main systems are partially functional:
 - ✅ Custom particle shader with wave effects and color gradients
